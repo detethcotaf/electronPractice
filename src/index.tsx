@@ -1,6 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import App from './App';
+import './index.css';
 
-const container = document.getElementById('contents');
-
-ReactDOM.render(<p>Hello, World!</p>, container);
+ReactDOM.render(
+    <App />,
+    document.getElementById('contents') as HTMLElement
+);
