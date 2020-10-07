@@ -10,7 +10,7 @@ interface Props {
 export const Report = (props: Props) => {
   const totalHours = props.items.reduce<number>(
     (prev: number, cur: WorkItem) => prev + cur.duration,
-    0
+    0,
   );
   const startOfMonth = moment(props.items[0].startDate).startOf('month');
   const endOfMonth = moment(props.items[0].startDate).endOf('month');
@@ -39,7 +39,8 @@ export const Report = (props: Props) => {
               </td>
               <td>{moment(i.startDate).format('MM/DD')}</td>
               <td className="start_time">
-                {moment(i.startDate).format('HH:mm')}~{moment(i.endDate).format('HH:mm')}
+                {moment(i.startDate).format('HH:mm')}~
+                {moment(i.endDate).format('HH:mm')}
               </td>
               <td className="number">{i.duration.toFixed(2)}h</td>
             </tr>

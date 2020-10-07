@@ -12,7 +12,7 @@ export interface WorkItem {
 
 export function mapArrayToWorkItem(data: string[][]): WorkItem[] {
   return data
-    .map((row) => {
+    .map(row => {
       const startDate = moment(`${row[4]} ${row[5]}`, 'YYYY-MM-DD HH:mm:ss');
       const endDate = moment(`${row[6]} ${row[7]}`, 'YYYY-MM-DD HH:mm:ss');
       const duration = moment.duration(endDate.diff(startDate));
@@ -23,8 +23,8 @@ export function mapArrayToWorkItem(data: string[][]): WorkItem[] {
         description: row[3],
         startDate: startDate.toDate(),
         endDate: endDate.toDate(),
-        duration: duration.asHours()
+        duration: duration.asHours(),
       };
     })
-    .filter((i) => i.client !== 'Client' && i.client); // 先頭と末尾の行を除外。
+    .filter(i => i.client !== 'Client' && i.client); // 先頭と末尾の行を除外。
 }

@@ -1,6 +1,9 @@
 import * as XLSX from 'xlsx';
 
-const { read, utils: { sheet_to_json } } = XLSX;
+const {
+  read,
+  utils: { sheet_to_json },
+} = XLSX;
 
 // エクセルファイル読み込み
 function readFirstSheet(data: any, options: XLSX.ParsingOptions): any[][] {
@@ -21,7 +24,7 @@ function readFileAsText(file: Blob): Promise<string> {
 
 // csv形式のデータをparseしオブジェクト配列へ変換する
 function mapCSVToArray(csv: string): string[][] {
-  return csv.split('\n').map((row) => row.split(','));
+  return csv.split('\n').map(row => row.split(','));
 }
 
 export { readFirstSheet, readFileAsText, mapCSVToArray };
